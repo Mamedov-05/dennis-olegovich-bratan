@@ -1,0 +1,25 @@
+# --- Создание файла geometry.py программно ---
+geometry_code = """
+import math
+
+def circle_area(radius):
+    return math.pi * radius ** 2
+
+def rectangle_area(width, height):
+    return width * height
+
+def triangle_area(a, b, c):
+    # Формула Герона
+    s = (a + b + c) / 2
+    return math.sqrt(s * (s - a) * (s - b) * (s - c))
+"""
+
+with open("geometry.py", "w", encoding="utf-8") as f:
+    f.write(geometry_code)
+
+
+# --- Основной файл программы ---
+import geometry
+
+print("Площадь круга (r=5):", geometry.circle_area(5))
+print("Площадь треугольника (стороны 3, 4, 5):", geometry.triangle_area(3, 4, 5))
