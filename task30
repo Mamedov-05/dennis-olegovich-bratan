@@ -1,0 +1,21 @@
+import datetime
+
+def exact_age(start_date):
+    t = datetime.date.today()
+    years = t.year - start_date.year
+    months = t.month - start_date.month
+    days = t.day - start_date.day
+    
+    # Корректировка, если текущий день меньше дня рождения
+    if days < 0:
+        months -= 1
+        # Берем приблизительное количество дней в предыдущем месяце или считаем через timedelta
+        days += 30 
+    # Корректировка, если текущий месяц меньше месяца рождения
+    if months < 0:
+        years -= 1
+        months += 12
+        
+    return f"Прошло: {years} лет, {months} месяцев, {days} дней"
+
+print(exact_age(datetime.date(2005, 5, 15)))
