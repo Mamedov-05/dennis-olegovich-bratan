@@ -1,0 +1,4 @@
+import math
+
+num = float(input("Введите число: "))
+print("Квадратный корень:", math.sqrt(num))
